@@ -1,12 +1,12 @@
-import { renderPizzas } from "./modules/renderPizzas";
-import { toppingsToogle } from "./modules/toppingToogle";
-import { renderToppings } from "./modules/renderToppings";
+import { renderPizzas } from './modules/renderPizzas.js';
+import { renderToppings } from './modules/renderToppings.js';
+import { toppingsToogle } from './modules/toppingToogle.js';
 
 
 
 const init = () => {
     toppingsToogle();
-
+    renderToppings
     renderPizzas();
 };
 

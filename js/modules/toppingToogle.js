@@ -4,7 +4,7 @@ export const toppingsToogle = () => {
     
     toppingsButton.addEventListener('click', () => {
         if (!toppingsList.classList.contains('toppings__list_show')) {
-        toppingsList.classList.add('toppings__list_show')
+        toppingsList.classList.add('toppings__list_show');
         toppingsButton.classList.add('toppings__button_active');
         
         toppingsList.style.maxHeight = toppingsList.scrollHeight + "px";

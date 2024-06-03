@@ -11,7 +11,7 @@ const createCard = (data) => {
     </picture>
 
     <div class="card__content">
-    <h3 class="card__title">${data.name['ru'][0].toUpperCase()}${data.name['ru'].slice().toLowerCase()}</h3>
+    <h3 class="card__title">${data.name['ru'][0].toUpperCase()}${data.name['ru'].slice(1).toLowerCase()}</h3>
                         
     <p class="card__info">
         <span class="card__price">${data.price['25cm']} ₽</span>
@@ -27,9 +27,13 @@ const createCard = (data) => {
 };
 
 
-export const renderPizzas = async () => {
-const pizzas = await getData('https://go-go-pizza-api.onrender.com/api/products');
-    const pizzaList = document.querySelector('.pizza__list')
+export const renderPizzas = async (toppings) => {
+const pizzas = await getData(
+    `https://go-go-pizza-api.onrender.com/api/products${
+    toppings ? `?toppings=${toppings}` : ''
+    }`,
+    );
+    const pizzaList = document.querySelector('.pizza__list');
     pizzaList.textContent = '';
 
     const items = pizzas.map((data) => {
@@ -40,5 +44,5 @@ const pizzas = await getData('https://go-go-pizza-api.onrender.com/api/products'
         return item;
     });
 
-    pizzaList.append(...items)
-}
+    pizzaList.append(...items);
+};
