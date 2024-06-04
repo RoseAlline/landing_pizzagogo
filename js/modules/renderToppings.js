@@ -1,5 +1,6 @@
 import { getData } from "./getData.js";
 import { renderPizzas } from "./renderPizzas.js";
+import { changeFirstUpperCase } from "./helpers.js";
 
 export const renderToppings = async () => {
     const { en: enToppings, ru: ruToppings } = await getData(
@@ -14,7 +15,7 @@ export const renderToppings = async () => {
         item.classList.add('toppings__item');
         item.innerHTML = `
         <input class="toppings__checkbox" id="${enName}" type="checkbox" name="topping" value="${enName}">
-        <label class="toppings__label" for="${enName}">${ruToppings[i][0].toUpperCase()}${ruToppings[i].slice(1).toLowerCase()}</label>
+        <label class="toppings__label" for="${enName}">${changeFirstUpperCase(ruToppings[i])}</label>
         `;
         return item;
     });
@@ -52,5 +53,6 @@ export const renderToppings = async () => {
     btnReset.addEventListener('click', () => {
         itemReset.remove();
         toppingsForm.reset();
+        renderPizzas();
     });
 };

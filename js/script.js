@@ -5,9 +5,9 @@ import { toppingsToogle } from './modules/toppingToogle.js';
 
 
 const init = () => {
-    toppingsToogle();
-    renderToppings
     renderPizzas();
+    renderToppings();
+    toppingsToogle();
 };
 
 init();
